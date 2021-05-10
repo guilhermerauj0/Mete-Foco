@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name">Mete Foco</string>
+    <string name="uh_pelo_visto_voc_n_o_tem_tarefas_hoje">Uh! Pelo visto você não tem tarefas hoje!</string>
+    <string name="ola">Olá,</string>
+    <string name="seja_bem_vindo">Seja bem vindo!</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="nova_tarefa">nova tarefa</string>
+    <string name="adicionar_ofaddtask">ADICIONAR</string>
+    <string name="hint_sobrenome">Sobrenome</string>
+    <string name="hint_nome">Nome</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_insira_seu_nome">Insira seu nome</string>
+</resources>

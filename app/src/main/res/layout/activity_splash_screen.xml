@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".SplashScreen">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_without_corners"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mete Foco"
+            android:textColor="@color/white"
+            android:textSize="50dp"
+            android:id="@+id/textMeteFoco"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserratbold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seu app de tarefas pessoais"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:layout_below="@+id/textMeteFoco"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/montserratmedium"/>
+    </RelativeLayout>
+
+</LinearLayout>

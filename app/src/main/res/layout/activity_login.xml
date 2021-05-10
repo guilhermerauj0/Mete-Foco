@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:backgroundTint="@color/purplePrimary"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:background="@drawable/rectanglewithborders" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnVoltar"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/btnvoltar" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textOla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textUsuario"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/montserratbold"
+            android:text="@string/txt_login"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/textUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/montserratmedium"
+            android:text="@string/txt_insira_seu_nome"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/editNome"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edittext_custom"
+            android:elevation="2dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/montserratmedium"
+            android:hint="@string/hint_nome"
+            android:padding="15dp"
+            android:textColorHint="@color/cardview_dark_background" />
+
+        <EditText
+            android:id="@+id/editSobrenome"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editNome"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edittext_custom"
+            android:elevation="2dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/montserratmedium"
+            android:hint="@string/hint_sobrenome"
+            android:padding="15dp"
+            android:textColorHint="@color/cardview_dark_background" />
+
+        <Button
+            android:id="@+id/btnAddLogin"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editSobrenome"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_with_gradient"
+            android:fontFamily="@font/montserratmedium"
+            android:text="@string/adicionar_ofaddtask"
+            android:textColor="@color/white"
+            android:textSize="17dp" />
+
+    </RelativeLayout>
+</LinearLayout>

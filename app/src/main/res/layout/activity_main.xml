@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:backgroundTint="@color/purplePrimary"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="@drawable/rectanglewithborders" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnMenu"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/menu_button" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="25dp"
+            android:clickable="true"
+            android:fontFamily="@font/montserratmedium"
+            android:gravity="center"
+            android:paddingHorizontal="15dp"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textOla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/textUsuario"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/montserratbold"
+            android:text="@string/ola"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/textUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/montserratmedium"
+            android:text="@string/seja_bem_vindo"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imgTarefasOff"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/montserratbold"
+            android:gravity="center"
+            android:text="@string/uh_pelo_visto_voc_n_o_tem_tarefas_hoje"
+            android:textColor="@color/purplePrimary"
+            android:textSize="25sp" />
+
+
+        <ImageView
+            android:id="@+id/imgTarefasOff"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/img_tarefas_off" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_addnew"
+            app:backgroundTint="@color/purplePrimary"
+            app:fabCustomSize="70dp"
+            app:rippleColor="@color/white" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
