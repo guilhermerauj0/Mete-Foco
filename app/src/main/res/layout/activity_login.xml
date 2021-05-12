@@ -84,6 +84,7 @@
             android:fontFamily="@font/montserratmedium"
             android:hint="@string/hint_nome"
             android:padding="15dp"
+            android:gravity="center"
             android:textColorHint="@color/cardview_dark_background" />
 
         <EditText
@@ -95,6 +96,7 @@
             android:background="@drawable/edittext_custom"
             android:elevation="2dp"
             android:focusable="true"
+            android:gravity="center"
             android:focusableInTouchMode="true"
             android:fontFamily="@font/montserratmedium"
             android:hint="@string/hint_sobrenome"

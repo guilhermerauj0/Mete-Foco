@@ -72,7 +72,7 @@
         android:gravity="center">
 
         <EditText
-            android:id="@+id/editNome"
+            android:id="@+id/editTitulo"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:elevation="2dp"
@@ -81,7 +81,7 @@
             android:focusable="true"
             android:background="@drawable/edittext_custom"
             android:fontFamily="@font/montserratmedium"
-            android:hint="Nome"
+            android:hint="Titulo"
             android:padding="15dp"
             android:textColorHint="@color/cardview_dark_background" />
 
@@ -90,7 +90,7 @@
             android:id="@+id/editDescricao"
             android:layout_width="330dp"
             android:layout_height="130dp"
-            android:layout_below="@+id/editNome"
+            android:layout_below="@+id/editTitulo"
             android:elevation="2dp"
             android:background="@drawable/edittext_custom"
             android:fontFamily="@font/montserratmedium"
@@ -102,7 +102,7 @@
 
         <EditText
             android:id="@+id/editTipo"
-            android:layout_width="145dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editDescricao"
             android:elevation="2dp"
@@ -116,11 +116,11 @@
 
         <EditText
             android:id="@+id/editData"
-            android:layout_width="145dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editDescricao"
             android:elevation="2dp"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_toRightOf="@+id/editTipo"

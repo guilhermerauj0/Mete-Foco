@@ -49,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
     public static class ViewHolder{
