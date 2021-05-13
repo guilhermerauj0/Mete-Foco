@@ -1,10 +1,12 @@
-package com.coldrosemob.myapplication;
+package com.coldrosemob.myapplication.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.coldrosemob.myapplication.R;
 
 public class SplashScreen extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.coldrosemob.myapplication;
+package com.coldrosemob.myapplication.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
+
+import com.coldrosemob.myapplication.R;
 
 public class AddNewTaskActivity extends AppCompatActivity {
 
