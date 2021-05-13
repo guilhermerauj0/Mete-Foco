@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         mViewHolder.addTaskFAB = findViewById(R.id.fabAdd);
-        mViewHolder.textLogin = findViewById(R.id.textLogin);
         mViewHolder.textUsuario = findViewById(R.id.textUsuario);
 
         mViewHolder.addTaskFAB.setOnClickListener(new View.OnClickListener() {
@@ -32,34 +31,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-        mViewHolder.textLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                i.putExtra("usuario", mViewHolder.usuario);
-                startActivityForResult(i, 1);
-            }
-        });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 1 && resultCode == 2 && data != null){
-            mViewHolder.usuario = data.getExtras().getString("usuario");
-            mViewHolder.textUsuario.setText(mViewHolder.usuario + "!");
-        }else{
-            Toast.makeText(this, "Refaça seu Login", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public static class ViewHolder{
 
         FloatingActionButton addTaskFAB;
-        TextView textLogin, textUsuario;
-        String usuario = "";
+        TextView textUsuario;
 
     }
 }
