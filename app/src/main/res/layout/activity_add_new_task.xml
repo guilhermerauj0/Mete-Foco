@@ -72,7 +72,7 @@
         android:gravity="center">
 
         <EditText
-            android:id="@+id/editTitulo"
+            android:id="@+id/editTitle"
             android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:elevation="2dp"
@@ -90,7 +90,7 @@
             android:id="@+id/editDescricao"
             android:layout_width="330dp"
             android:layout_height="130dp"
-            android:layout_below="@+id/editTitulo"
+            android:layout_below="@+id/editTitle"
             android:elevation="2dp"
             android:background="@drawable/edittext_custom"
             android:fontFamily="@font/montserratmedium"

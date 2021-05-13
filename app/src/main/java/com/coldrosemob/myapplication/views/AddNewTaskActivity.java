@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.coldrosemob.myapplication.R;
+import com.coldrosemob.myapplication.model.Task;
+
+import java.util.List;
 
 public class AddNewTaskActivity extends AppCompatActivity {
 
@@ -21,19 +24,22 @@ public class AddNewTaskActivity extends AppCompatActivity {
 
         mViewHolder.editNome = findViewById(R.id.editNome);
         mViewHolder.btnVoltar = findViewById(R.id.btnMenu);
+        mViewHolder.editDescription = findViewById(R.id.editDescricao);
+        mViewHolder.editTitle = findViewById(R.id.editTitle);
+        mViewHolder.i = getIntent();
 
         mViewHolder.btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AddNewTaskActivity.this, MainActivity.class);
-                startActivity(i);
+
                 finish();
             }
         });
     }
 
     public static class ViewHolder{
-        EditText editNome;
+        EditText editNome, editTitle, editDescription;
         ImageView btnVoltar;
+        Intent i;
     }
 }

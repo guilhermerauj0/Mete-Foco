@@ -9,25 +9,25 @@
         android:layout_height="80dp"
         android:layout_margin="20dp"
         android:background="@drawable/task_background_custom"
-        android:elevation="15dp">
+        android:elevation="10dp">
 
-        <RadioButton
-            android:id="@+id/radioButtontask"
+        <CheckBox
+            android:id="@+id/cbConfirmTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:backgroundTint="@color/white" />
+            android:button="@drawable/image_checkbox"/>
 
         <TextView
-            android:id="@+id/textNomeDaTarefa"
+            android:id="@+id/textTaskName"
             android:layout_width="240dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:lines="2"
             android:lineHeight="40dp"
-            android:layout_toRightOf="@+id/radioButtontask"
+            android:layout_toRightOf="@+id/cbConfirmTask"
             android:fontFamily="@font/montserratsemibold"
             android:gravity="center_vertical"
             android:text="Nome da Tarefa"
@@ -39,8 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/textNomeDaTarefa"
+            android:layout_toRightOf="@+id/textTaskName"
             android:background="@android:color/transparent"
             android:scaleType="center"
             android:src="@drawable/ic_close" />
