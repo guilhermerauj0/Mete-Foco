@@ -11,7 +11,6 @@ public class TaskMock {
 
     public TaskMock() {
         listaTask = new ArrayList<>();
-        listaTask.add(new Task("Fazer tutorial", "Tutorial para o youtube"));
 
     }
 

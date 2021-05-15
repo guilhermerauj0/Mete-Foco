@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_main">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_margin="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
         android:background="@drawable/task_background_custom"
         android:elevation="10dp">
 
         <CheckBox
-            android:id="@+id/cbConfirmTask"
+            android:id="@+id/cbRow_ConfirmTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -20,14 +23,14 @@
             android:button="@drawable/image_checkbox"/>
 
         <TextView
-            android:id="@+id/textTaskName"
+            android:id="@+id/textRow_TaskName"
             android:layout_width="240dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:lines="2"
             android:lineHeight="40dp"
-            android:layout_toRightOf="@+id/cbConfirmTask"
+            android:layout_toRightOf="@+id/cbRow_ConfirmTask"
             android:fontFamily="@font/montserratsemibold"
             android:gravity="center_vertical"
             android:text="Nome da Tarefa"
@@ -35,11 +38,11 @@
             android:textSize="20dp" />
 
         <ImageButton
-            android:id="@+id/btnAddTask"
+            android:id="@+id/btnRow_DeleteTask"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/textTaskName"
+            android:layout_toRightOf="@+id/textRow_TaskName"
             android:background="@android:color/transparent"
             android:scaleType="center"
             android:src="@drawable/ic_close" />

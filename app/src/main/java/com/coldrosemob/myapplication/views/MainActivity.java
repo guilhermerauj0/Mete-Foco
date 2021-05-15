@@ -1,5 +1,6 @@
 package com.coldrosemob.myapplication.views;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coldrosemob.myapplication.R;
@@ -27,18 +29,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        mViewHolder.imgTaskOff = findViewById(R.id.imgTaskOff);
+        mViewHolder.textTaskOff = findViewById(R.id.textTaskOff);
         mViewHolder.addTaskFAB = findViewById(R.id.fabAdd);
         mViewHolder.textUsuario = findViewById(R.id.textUsuario);
         mViewHolder.rvTask = findViewById(R.id.rvTask_main);
 
         TaskMock taskMock = new TaskMock();
-        List<Task> listaTask = new ArrayList<>();
-        listaTask.addAll(taskMock.getListaTask());
+        mViewHolder.listaTask = new ArrayList<>();
+        mViewHolder.listaTask.addAll(taskMock.getListaTask());
+
+
 
         // adapter
-        TaskAdapter taskAdapter = new TaskAdapter(listaTask);
-        mViewHolder.rvTask.setAdapter(taskAdapter);
+        mViewHolder.taskAdapter = new TaskAdapter(mViewHolder.listaTask);
+        mViewHolder.rvTask.setAdapter(mViewHolder.taskAdapter);
 
         // layout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -47,17 +52,46 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.addTaskFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, AddNewTaskActivity.class);
-                startActivityForResult(i, 1);
+                mViewHolder.i = new Intent(MainActivity.this, AddNewTaskActivity.class);
+                mViewHolder.i.putExtra("title", mViewHolder.title);
+                mViewHolder.i.putExtra("description", mViewHolder.description);
+                startActivityForResult(mViewHolder.i, 1);
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1 && resultCode == 1 && data != null){
+            mViewHolder.title = data.getExtras().getString("title");
+            mViewHolder.description = data.getExtras().getString("description");
+            addTask();
+            mViewHolder.taskAdapter.notifyDataSetChanged();
+        }
+        else{
+            finish();
+        }
+    }
+
     public static class ViewHolder{
 
+        String title = "", description = "";
         FloatingActionButton addTaskFAB;
-        TextView textUsuario;
+        Intent i;
+        TextView textUsuario, textTaskOff;
+        List<Task> listaTask;
+        TaskAdapter taskAdapter;
+        ImageView imgTaskOff;
         RecyclerView rvTask;
 
+    }
+
+    private void addTask(){
+        mViewHolder.taskAdapter.getListaTask().add(0, Task.TaskBuilder.builder()
+                .setTaskTitle(mViewHolder.title)
+                .setTaskDescription(mViewHolder.description)
+                .build());
     }
 }
