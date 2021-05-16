@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.coldrosemob.myapplication.R;
 import com.coldrosemob.myapplication.adapter.TaskAdapter;
-import com.coldrosemob.myapplication.data.TaskMock;
 import com.coldrosemob.myapplication.model.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -35,11 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.textUsuario = findViewById(R.id.textUsuario);
         mViewHolder.rvTask = findViewById(R.id.rvTask_main);
 
-        TaskMock taskMock = new TaskMock();
         mViewHolder.listaTask = new ArrayList<>();
-        mViewHolder.listaTask.addAll(taskMock.getListaTask());
-
-
 
         // adapter
         mViewHolder.taskAdapter = new TaskAdapter(mViewHolder.listaTask);

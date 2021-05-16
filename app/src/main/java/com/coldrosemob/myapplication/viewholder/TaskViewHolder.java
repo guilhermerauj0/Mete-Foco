@@ -17,14 +17,12 @@ import java.util.List;
 
 public class TaskViewHolder extends RecyclerView.ViewHolder {
 
-    private ImageButton btnRow_DeleteTask;
     private CheckBox cbRow_ConfirmTask;
     private TextView textRow_TaskName;
 
     public TaskViewHolder(@NonNull View itemView) {
         super(itemView);
 
-        btnRow_DeleteTask = itemView.findViewById(R.id.btnRow_DeleteTask);
         cbRow_ConfirmTask = itemView.findViewById(R.id.cbRow_ConfirmTask);
         textRow_TaskName = itemView.findViewById(R.id.textRow_TaskName);
 

@@ -50,7 +50,6 @@ public class AddNewTaskActivity extends AppCompatActivity {
 
     public static class ViewHolder{
         EditText editTitle, editDescription;
-        String title, description;
         ImageView btnVoltar;
         Button btnAddTask;
         Intent i;
