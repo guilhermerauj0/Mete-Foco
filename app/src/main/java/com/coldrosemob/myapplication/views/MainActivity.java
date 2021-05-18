@@ -15,7 +15,9 @@ import com.coldrosemob.myapplication.adapter.TaskAdapter;
 import com.coldrosemob.myapplication.model.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 mViewHolder.i = new Intent(MainActivity.this, AddNewTaskActivity.class);
                 mViewHolder.i.putExtra("title", mViewHolder.title);
                 mViewHolder.i.putExtra("description", mViewHolder.description);
+                mViewHolder.i.putExtra("date", mViewHolder.currentDate);
+                mViewHolder.i.putExtra("day", mViewHolder.day);
                 startActivityForResult(mViewHolder.i, 1);
             }
         });
@@ -61,17 +65,16 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == 1 && resultCode == 1 && data != null){
             mViewHolder.title = data.getExtras().getString("title");
             mViewHolder.description = data.getExtras().getString("description");
+            mViewHolder.currentDate = data.getExtras().getString("date");
+            mViewHolder.day = data.getExtras().getString("day");
             addTask();
             mViewHolder.taskAdapter.notifyDataSetChanged();
-        }
-        else{
-            finish();
         }
     }
 
     public static class ViewHolder{
 
-        String title = "", description = "";
+        String title = "", description = "", currentDate, day;
         FloatingActionButton addTaskFAB;
         Intent i;
         TextView textUsuario, textTaskOff;
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.taskAdapter.getListaTask().add(0, Task.TaskBuilder.builder()
                 .setTaskTitle(mViewHolder.title)
                 .setTaskDescription(mViewHolder.description)
+                .setTaskDate(mViewHolder.currentDate)
+                .setTaskDay(mViewHolder.day)
                 .build());
     }
 }

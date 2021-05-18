@@ -6,6 +6,15 @@ public class Task {
     private String taskDescription;
     private String taskDate;
     private String taskType;
+    private String taskDay;
+
+    public String getTaskDay() {
+        return taskDay;
+    }
+
+    public void setTaskDay(String taskDay) {
+        this.taskDay = taskDay;
+    }
 
     public String getTaskDate() {
         return taskDate;
@@ -44,6 +53,12 @@ public class Task {
         private String taskDescription;
         private String taskDate;
         private String taskType;
+        private String taskDay;
+
+        public TaskBuilder setTaskDay(String taskDay) {
+            this.taskDay = taskDay;
+            return this;
+        }
 
         public TaskBuilder setTaskDate(String taskDate) {
             this.taskDate = taskDate;

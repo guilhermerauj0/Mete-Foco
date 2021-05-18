@@ -19,7 +19,6 @@
             android:layout_height="230dp"
             android:background="@drawable/rectanglewithborders" />
 
-
         <LinearLayout
             android:id="@+id/linearLayout01"
             android:layout_width="wrap_content"
@@ -35,7 +34,6 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:src="@drawable/menu_button" />
-
 
         </LinearLayout>
 
@@ -78,7 +76,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/row_task_list" />
 
-
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -91,7 +88,6 @@
             android:textColor="@color/purplePrimary"
             android:layout_above="@+id/imgTaskOff"
             android:textSize="25sp" />
-
 
         <ImageView
             android:id="@+id/imgTaskOff"
@@ -112,11 +108,11 @@
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/ic_addnew"
+            android:tint="@color/white"
             app:backgroundTint="@color/purplePrimary"
             app:fabCustomSize="70dp"
             app:rippleColor="@color/white" />
 
     </RelativeLayout>
-
 
 </LinearLayout>

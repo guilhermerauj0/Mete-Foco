@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.coldrosemob.myapplication.R;
 import com.coldrosemob.myapplication.model.Task;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class TaskViewHolder extends RecyclerView.ViewHolder {
 
@@ -29,7 +32,16 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
     public void bindData(Task task) {
         // Lugar onde trata os itens do row
         textRow_TaskName.setText(task.getTaskTitle());
-        textRow_TaskDate.setText(task.getTaskDate());
+
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd");
+        Date date = new Date();
+        String dateFormat = formatDate.format(date);
+
+        if (dateFormat.equals(task.getTaskDay())){
+            textRow_TaskDate.setText("Hoje");
+        }else{
+            textRow_TaskDate.setText(task.getTaskDate());
+        }
 
     }
 

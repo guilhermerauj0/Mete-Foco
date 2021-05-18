@@ -101,7 +101,7 @@
 
 
         <EditText
-            android:id="@+id/editTipo"
+            android:id="@+id/editAddTask_Tipo"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editAddTask_Descricao"
@@ -114,26 +114,43 @@
             android:padding="15dp"
             android:textColorHint="@color/cardview_dark_background" />
 
-        <EditText
-            android:id="@+id/editData"
+        <LinearLayout
+            android:id="@+id/layoutAddTask_date"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/editAddTask_Tipo"
             android:layout_below="@+id/editAddTask_Descricao"
-            android:elevation="2dp"
+            android:orientation="horizontal"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_toRightOf="@+id/editTipo"
-            android:fontFamily="@font/montserratmedium"
-            android:hint="Data"
-            android:textColorHint="@color/cardview_dark_background"
             android:background="@drawable/edittext_custom"
-            android:padding="15dp" />
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_baseline_date_range_24"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/textAddTask_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:textSize="15dp"
+                android:fontFamily="@font/montserratmedium"
+                android:hint="Data"
+                android:textColorHint="@color/cardview_dark_background"
+                android:padding="15dp" />
+
+        </LinearLayout>
 
         <Button
             android:layout_width="330dp"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editTipo"
+            android:layout_below="@id/editAddTask_Tipo"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_with_gradient"
             android:fontFamily="@font/montserratmedium"
