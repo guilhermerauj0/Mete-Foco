@@ -11,4 +11,5 @@
     <string name="hint_nome">Nome</string>
     <string name="txt_login">Login</string>
     <string name="txt_insira_seu_nome">Insira seu nome</string>
+    <string name="nome_da_tarefa">Nome da Tarefa</string>
 </resources>

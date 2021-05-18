@@ -19,17 +19,21 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
     private CheckBox cbRow_ConfirmTask;
     private TextView textRow_TaskName;
+    private TextView textRow_TaskDate;
 
     public TaskViewHolder(@NonNull View itemView) {
         super(itemView);
 
         cbRow_ConfirmTask = itemView.findViewById(R.id.cbRow_ConfirmTask);
         textRow_TaskName = itemView.findViewById(R.id.textRow_TaskName);
+        textRow_TaskDate = itemView.findViewById(R.id.textRow_TaskDate);
 
     }
 
     public void bindData(Task task) {
+        // Lugar onde trata os itens do row
         textRow_TaskName.setText(task.getTaskTitle());
+        textRow_TaskDate.setText(task.getTaskDate());
 
     }
 

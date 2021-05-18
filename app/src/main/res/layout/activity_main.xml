@@ -84,6 +84,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textTaskOff"
             android:layout_centerInParent="true"
+            android:visibility="invisible"
             android:fontFamily="@font/montserratbold"
             android:gravity="center"
             android:text="@string/uh_pelo_visto_voc_n_o_tem_tarefas_hoje"
@@ -97,6 +98,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_centerInParent="true"
+            android:visibility="invisible"
             android:src="@drawable/img_tarefas_off" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
