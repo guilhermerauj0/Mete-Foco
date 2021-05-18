@@ -15,3 +15,4 @@ visualização de detalhes da tarefa e organização definida pelo próprio util
 ### Ferramentas
 
 - [Android Studio](https://developer.android.com/studio)
+- [Banco de Dados SQLite](https://www.sqlite.org/index.html)
