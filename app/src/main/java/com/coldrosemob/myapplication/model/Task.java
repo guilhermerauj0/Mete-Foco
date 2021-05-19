@@ -91,6 +91,7 @@ public class Task {
             task.taskDescription = taskDescription;
             task.taskDate = taskDate;
             task.taskType = taskType;
+            task.taskDay = taskDay;
             return task;
         }
     }

@@ -11,6 +11,7 @@ import com.coldrosemob.myapplication.R;
 import com.coldrosemob.myapplication.model.Task;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -37,12 +38,18 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
         Date date = new Date();
         String dateFormat = formatDate.format(date);
 
+        int intDate = Integer.parseInt(dateFormat);
+        int intDay = Integer.parseInt(task.getTaskDay());
+
         if (dateFormat.equals(task.getTaskDay())){
+
             textRow_TaskDate.setText("Hoje");
-        }else{
+
+        }else if (intDate < intDay && intDay == intDate + 1){
+            textRow_TaskDate.setText("Amanhã");
+        }
+        else{
             textRow_TaskDate.setText(task.getTaskDate());
         }
-
     }
-
 }

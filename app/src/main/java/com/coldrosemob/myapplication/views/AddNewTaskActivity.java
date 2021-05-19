@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.coldrosemob.myapplication.R;
 import com.coldrosemob.myapplication.model.DatePickerFragment;
@@ -51,12 +52,20 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
         mViewHolder.btnAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mViewHolder.i.putExtra("title", mViewHolder.editTitle.getText().toString());
-                mViewHolder.i.putExtra("description",  mViewHolder.editDescription.getText().toString());
-                mViewHolder.i.putExtra("date", mViewHolder.currentDate);
-                mViewHolder.i.putExtra("day", mViewHolder.day);
-                setResult(1, mViewHolder.i);
-                finish();
+                mViewHolder.title = mViewHolder.editTitle.getText().toString();
+                mViewHolder.description = mViewHolder.editDescription.getText().toString();
+
+                if(mViewHolder.title.isEmpty() && mViewHolder.description.isEmpty()){
+                    Toast.makeText(AddNewTaskActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    mViewHolder.i.putExtra("title", mViewHolder.editTitle.getText().toString());
+                    mViewHolder.i.putExtra("description",  mViewHolder.editDescription.getText().toString());
+                    mViewHolder.i.putExtra("date", mViewHolder.currentDate);
+                    mViewHolder.i.putExtra("day", mViewHolder.day);
+                    setResult(1, mViewHolder.i);
+                    finish();
+                }
             }
         });
 
@@ -87,11 +96,16 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
 
         SimpleDateFormat formatDate = new SimpleDateFormat("dd");
         Date date = new Date();
-        mViewHolder.day = formatDate.format(date);
+        String dateFormat = formatDate.format(date);
+        int intDate = Integer.parseInt(dateFormat);
 
-        if (mViewHolder.day.equals(String.valueOf(dayOfMonth))){
+        mViewHolder.day = String.valueOf(dayOfMonth);
+
+        if (dateFormat.equals(String.valueOf(dayOfMonth))){
             mViewHolder.textAddTask_date.setText("Hoje");
-        }else{
+        }else if (intDate < dayOfMonth && dayOfMonth == intDate+ 1){
+            mViewHolder.textAddTask_date.setText("Amanhã");
+        }else {
             mViewHolder.textAddTask_date.setText(mViewHolder.currentDate);
         }
     }
@@ -100,6 +114,7 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
         EditText editTitle, editDescription, editTipo;
         LinearLayout layoutAddTask_date;
         TextView textAddTask_date;
+        String title, description;
         String currentDate, day;
         ImageView btnVoltar;
         Button btnAddTask;
