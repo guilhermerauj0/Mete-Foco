@@ -68,11 +68,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/rvTask_main"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/montserratbold"
+            android:gravity="center"
+            android:text="Suas Tarefas"
+            android:textColor="@color/purplePrimary"
+            android:textSize="25sp" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="480dp"
             android:id="@+id/rvTask_main"
+            android:layout_alignParentBottom="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/row_task_list" />
 
@@ -114,5 +126,4 @@
             app:rippleColor="@color/white" />
 
     </RelativeLayout>
-
 </LinearLayout>

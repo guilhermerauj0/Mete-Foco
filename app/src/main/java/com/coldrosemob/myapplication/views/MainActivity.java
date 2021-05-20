@@ -1,23 +1,22 @@
 package com.coldrosemob.myapplication.views;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.coldrosemob.myapplication.R;
 import com.coldrosemob.myapplication.adapter.TaskAdapter;
 import com.coldrosemob.myapplication.model.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.rvTask = findViewById(R.id.rvTask_main);
 
         mViewHolder.listaTask = new ArrayList<>();
+
+        //TODO Aparecer imagem e texto informando que não há tarefas
 
         // adapter
         mViewHolder.taskAdapter = new TaskAdapter(mViewHolder.listaTask);

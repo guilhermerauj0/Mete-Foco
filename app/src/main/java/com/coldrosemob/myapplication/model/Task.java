@@ -7,6 +7,15 @@ public class Task {
     private String taskDate;
     private String taskType;
     private String taskDay;
+    private boolean taskSelected;
+
+    public boolean isTaskSelected() {
+        return taskSelected;
+    }
+
+    public void setTaskSelected(boolean taskSelected) {
+        this.taskSelected = taskSelected;
+    }
 
     public String getTaskDay() {
         return taskDay;
@@ -54,6 +63,12 @@ public class Task {
         private String taskDate;
         private String taskType;
         private String taskDay;
+        private boolean taskSelected;
+
+        public TaskBuilder setTaskSelected(boolean taskSelected) {
+            this.taskSelected = taskSelected;
+            return this;
+        }
 
         public TaskBuilder setTaskDay(String taskDay) {
             this.taskDay = taskDay;
@@ -92,6 +107,7 @@ public class Task {
             task.taskDate = taskDate;
             task.taskType = taskType;
             task.taskDay = taskDay;
+            task.taskSelected = taskSelected;
             return task;
         }
     }

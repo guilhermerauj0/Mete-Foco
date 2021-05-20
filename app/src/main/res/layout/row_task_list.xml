@@ -11,9 +11,9 @@
         android:layout_height="80dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
-        android:enabled="true"
-        android:focusable="true"
+        android:id="@+id/rlRow_"
         android:background="@drawable/task_background_custom"
+        android:clickable="true"
         android:elevation="10dp">
 
         <CheckBox
@@ -22,7 +22,7 @@
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:button="@drawable/image_checkbox"/>
+            android:button="@drawable/image_checkbox" />
 
         <TextView
             android:id="@+id/textRow_TaskName"

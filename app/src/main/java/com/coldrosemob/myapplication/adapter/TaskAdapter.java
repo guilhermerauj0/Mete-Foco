@@ -1,6 +1,7 @@
 package com.coldrosemob.myapplication.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,19 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         Task task = listaTask.get(position);
         holder.bindData(task);
 
+        // click do checkBox
+        holder.cbRow_ConfirmTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (holder.cbRow_ConfirmTask.isChecked()) {
+                    Log.d("clicado", "true");
+                    holder.rlRow_.setActivated(true);
+                } else {
+                    Log.d("nao clicado", "false");
+                    holder.rlRow_.setActivated(false);
+                }
+            }
+        });
     }
 
     @Override
