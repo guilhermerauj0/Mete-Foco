@@ -45,10 +45,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
             @Override
             public void onClick(View v) {
                 if (holder.cbRow_ConfirmTask.isChecked()) {
-                    Log.d("clicado", "true");
                     holder.rlRow_.setActivated(true);
                 } else {
-                    Log.d("nao clicado", "false");
                     holder.rlRow_.setActivated(false);
                 }
             }
