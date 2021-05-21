@@ -26,11 +26,11 @@
 
         <TextView
             android:id="@+id/textRow_TaskName"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
-            android:lines="2"
+            android:lines="1"
             android:lineHeight="40dp"
             android:layout_toRightOf="@+id/cbRow_ConfirmTask"
             android:fontFamily="@font/montserratsemibold"
@@ -40,14 +40,13 @@
             android:textSize="18dp" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/textRow_TaskDate"
-            android:layout_toRightOf="@+id/textRow_TaskName"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:fontFamily="@font/montserratsemibold"
-            android:gravity="center"
+            android:layout_below="@+id/textRow_TaskName"
+            android:layout_toRightOf="@+id/cbRow_ConfirmTask"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/montserratmedium"
             android:text="Amanhã"
             android:textColor="@color/purplePrimary"
             android:textSize="15dp"/>

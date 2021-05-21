@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         mViewHolder.listaTask = new ArrayList<>();
 
-        //TODO Aparecer imagem e texto informando que não há tarefas
-
+        // TODO Aparecer imagem e texto informando que não há tarefas
+        // TODO Criar database e atrelar as tarefas a ele
         // adapter
         mViewHolder.taskAdapter = new TaskAdapter(mViewHolder.listaTask);
         mViewHolder.rvTask.setAdapter(mViewHolder.taskAdapter);
