@@ -1,10 +1,12 @@
 package com.coldrosemob.myapplication.views;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,20 +15,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.coldrosemob.myapplication.R;
 import com.coldrosemob.myapplication.adapter.TaskAdapter;
-import com.coldrosemob.myapplication.model.Task;
+import com.coldrosemob.myapplication.model.DBHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     ViewHolder mViewHolder = new ViewHolder();
+    DBHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        db = new DBHelper(this);
+
+        // informações da tarefa para o banco de dados
+        mViewHolder.taskId = new ArrayList<>();
+        mViewHolder.taskDate = new ArrayList<>();
+        mViewHolder.taskDescription = new ArrayList<>();
+        mViewHolder.taskTitle = new ArrayList<>();
+        mViewHolder.taskType = new ArrayList<>();
+
+        listarTarefas();
 
         mViewHolder.imgTaskOff = findViewById(R.id.imgTaskOff);
         mViewHolder.textTaskOff = findViewById(R.id.textTaskOff);
@@ -34,12 +47,12 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.textUsuario = findViewById(R.id.textUsuario);
         mViewHolder.rvTask = findViewById(R.id.rvTask_main);
 
-        mViewHolder.listaTask = new ArrayList<>();
-
         // TODO Aparecer imagem e texto informando que não há tarefas
-        // TODO Criar database e atrelar as tarefas a ele
+        // TODO Criar menu de visualização detalhada da tarefa
+
         // adapter
-        mViewHolder.taskAdapter = new TaskAdapter(mViewHolder.listaTask);
+        mViewHolder.taskAdapter = new TaskAdapter(MainActivity.this, this, mViewHolder.taskId, mViewHolder.taskTitle,
+                mViewHolder.taskDescription, mViewHolder.taskType, mViewHolder.taskDate);
         mViewHolder.rvTask.setAdapter(mViewHolder.taskAdapter);
 
         // layout
@@ -50,48 +63,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mViewHolder.i = new Intent(MainActivity.this, AddNewTaskActivity.class);
-                mViewHolder.i.putExtra("title", mViewHolder.title);
-                mViewHolder.i.putExtra("description", mViewHolder.description);
-                mViewHolder.i.putExtra("date", mViewHolder.currentDate);
-                mViewHolder.i.putExtra("day", mViewHolder.day);
                 startActivityForResult(mViewHolder.i, 1);
             }
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 1 && resultCode == 1 && data != null){
-            mViewHolder.title = data.getExtras().getString("title");
-            mViewHolder.description = data.getExtras().getString("description");
-            mViewHolder.currentDate = data.getExtras().getString("date");
-            mViewHolder.day = data.getExtras().getString("day");
-            addTask();
-            mViewHolder.taskAdapter.notifyDataSetChanged();
-        }
-    }
-
-    public static class ViewHolder{
-
-        String title = "", description = "", currentDate, day;
+    public static class ViewHolder {
         FloatingActionButton addTaskFAB;
         Intent i;
         TextView textUsuario, textTaskOff;
-        List<Task> listaTask;
+        ArrayList<String> taskId, taskTitle, taskDescription, taskType, taskDate;
         TaskAdapter taskAdapter;
         ImageView imgTaskOff;
         RecyclerView rvTask;
-
     }
 
-    private void addTask(){
-        mViewHolder.taskAdapter.getListaTask().add(0, Task.TaskBuilder.builder()
-                .setTaskTitle(mViewHolder.title)
-                .setTaskDescription(mViewHolder.description)
-                .setTaskDate(mViewHolder.currentDate)
-                .setTaskDay(mViewHolder.day)
-                .build());
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == 1) {
+            recreate();
+        }
+    }
+
+    public void listarTarefas() {
+        Cursor cursor = db.selectAll_Tarefa();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(this, "Sem banco de dados", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                mViewHolder.taskId.add(cursor.getString(0));
+                mViewHolder.taskTitle.add(cursor.getString(1));
+                mViewHolder.taskDescription.add(cursor.getString(2));
+                mViewHolder.taskType.add(cursor.getString(3));
+                mViewHolder.taskDate.add(cursor.getString(4));
+            }
+        }
     }
 }

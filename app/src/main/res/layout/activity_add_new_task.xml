@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -18,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="260dp"
             android:background="@drawable/rectanglewithborders" />
-
 
         <LinearLayout
             android:id="@+id/linearLayout01"
@@ -69,16 +67,16 @@
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="30dp"
         android:gravity="center">
 
         <EditText
             android:id="@+id/editAddTask_Title"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="2dp"
             android:textSize="17dp"
             android:layout_marginBottom="20dp"
-            android:focusableInTouchMode="true"
             android:focusable="true"
             android:background="@drawable/edittext_custom"
             android:fontFamily="@font/montserratmedium"
@@ -89,8 +87,8 @@
 
         <EditText
             android:id="@+id/editAddTask_Descricao"
-            android:layout_width="330dp"
-            android:layout_height="130dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_below="@+id/editAddTask_Title"
             android:elevation="2dp"
             android:textSize="17dp"
@@ -104,7 +102,7 @@
 
         <EditText
             android:id="@+id/editAddTask_Tipo"
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editAddTask_Descricao"
             android:elevation="2dp"
@@ -119,23 +117,19 @@
 
         <LinearLayout
             android:id="@+id/layoutAddTask_date"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/editAddTask_Tipo"
-            android:layout_below="@+id/editAddTask_Descricao"
+            android:layout_below="@+id/editAddTask_Tipo"
             android:orientation="horizontal"
-            android:layout_marginLeft="20dp"
             android:background="@drawable/edittext_custom"
-            android:layout_marginTop="20dp"
-            android:clickable="true"
-            android:layout_marginBottom="20dp">
+            android:clickable="true">
 
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_baseline_date_range_24"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp" />
 
             <TextView
                 android:id="@+id/textAddTask_date"
@@ -151,9 +145,9 @@
         </LinearLayout>
 
         <Button
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editAddTask_Tipo"
+            android:layout_below="@id/layoutAddTask_date"
             android:layout_marginTop="20dp"
             android:background="@drawable/button_with_gradient"
             android:fontFamily="@font/montserratmedium"
