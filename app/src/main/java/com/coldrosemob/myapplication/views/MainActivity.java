@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,15 +40,15 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.taskTitle = new ArrayList<>();
         mViewHolder.taskType = new ArrayList<>();
 
-        listarTarefas();
-
         mViewHolder.imgTaskOff = findViewById(R.id.imgTaskOff);
         mViewHolder.textTaskOff = findViewById(R.id.textTaskOff);
+        mViewHolder.layoutMain_InfoTaskOff = findViewById(R.id.layoutMain_InfoTaskOff);
         mViewHolder.addTaskFAB = findViewById(R.id.fabAdd);
         mViewHolder.textUsuario = findViewById(R.id.textUsuario);
         mViewHolder.rvTask = findViewById(R.id.rvTask_main);
 
-        // TODO Aparecer imagem e texto informando que não há tarefas
+        listarTarefas();
+
         // TODO Criar menu de visualização detalhada da tarefa
 
         // adapter
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static class ViewHolder {
         FloatingActionButton addTaskFAB;
+        LinearLayout layoutMain_InfoTaskOff;
         Intent i;
         TextView textUsuario, textTaskOff;
         ArrayList<String> taskId, taskTitle, taskDescription, taskType, taskDate;
@@ -90,8 +92,10 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = db.selectAll_Tarefa();
         if (cursor.getCount() == 0) {
             Toast.makeText(this, "Sem banco de dados", Toast.LENGTH_SHORT).show();
+            mostrarInfoTaskOff();
         } else {
             while (cursor.moveToNext()) {
+                ocultarInfoTaskOff();
                 mViewHolder.taskId.add(cursor.getString(0));
                 mViewHolder.taskTitle.add(cursor.getString(1));
                 mViewHolder.taskDescription.add(cursor.getString(2));
@@ -99,5 +103,13 @@ public class MainActivity extends AppCompatActivity {
                 mViewHolder.taskDate.add(cursor.getString(4));
             }
         }
+    }
+
+    public void mostrarInfoTaskOff() {
+        mViewHolder.layoutMain_InfoTaskOff.setVisibility(View.VISIBLE);
+    }
+
+    public void ocultarInfoTaskOff() {
+        mViewHolder.layoutMain_InfoTaskOff.setVisibility(View.INVISIBLE);
     }
 }

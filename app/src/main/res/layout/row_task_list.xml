@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"
             android:lines="1"
-            android:lineHeight="40dp"
             android:layout_toRightOf="@+id/cbRow_ConfirmTask"
             android:fontFamily="@font/montserratsemibold"
             android:gravity="center_vertical"
             android:text="@string/nome_da_tarefa"
             android:textColor="@color/purplePrimary"
-            android:textSize="18dp" />
+            android:textSize="17dp" />
 
         <TextView
             android:layout_width="match_parent"
