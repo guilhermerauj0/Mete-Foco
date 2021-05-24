@@ -1,10 +1,14 @@
 package com.coldrosemob.myapplication.adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +52,31 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         //holder.bindData(task);
         holder.textRow_TaskName.setText(String.valueOf(taskTitle.get(position)));
         holder.textRow_TaskDate.setText(String.valueOf(taskDate.get(position)));
+        holder.rlRow_.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builderDialog = new AlertDialog.Builder(v.getRootView().getContext());
+                View dialogView = LayoutInflater.from(v.getRootView().getContext()).inflate(R.layout.custom_dialog, null);
+                TextView editDialog_Title, editDialog_Descricao, editDialog_Tipo, textDialog_Date;
+                builderDialog.setView(dialogView);
+                AlertDialog dialog = builderDialog.create();
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                editDialog_Descricao = dialogView.findViewById(R.id.editDialog_Descricao);
+                editDialog_Title = dialogView.findViewById(R.id.editDialog_Title);
+                editDialog_Tipo = dialogView.findViewById(R.id.editDialog_Tipo);
+                textDialog_Date = dialogView.findViewById(R.id.textDialog_date);
+
+                editDialog_Descricao.setText(String.valueOf(taskDescription.get(position)));
+                editDialog_Title.setText(String.valueOf(taskTitle.get(position)));
+                editDialog_Tipo.setText(String.valueOf(taskType.get(position)));
+                textDialog_Date.setText(String.valueOf(taskDate.get(position)));
+
+                builderDialog.setCancelable(true);
+                dialog.show();
+
+            }
+        });
 
         // click do checkBox
         holder.cbRow_ConfirmTask.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +89,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
                 }
             }
         });
+
     }
 
     @Override

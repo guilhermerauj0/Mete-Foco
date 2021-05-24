@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
         listarTarefas();
 
-        // TODO Criar menu de visualização detalhada da tarefa
-
         // adapter
         mViewHolder.taskAdapter = new TaskAdapter(MainActivity.this, this, mViewHolder.taskId, mViewHolder.taskTitle,
                 mViewHolder.taskDescription, mViewHolder.taskType, mViewHolder.taskDate);
