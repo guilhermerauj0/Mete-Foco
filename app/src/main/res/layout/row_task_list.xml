@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     tools:showIn="@layout/activity_main">
 
     <RelativeLayout
+        android:id="@+id/rlRow_"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
-        android:id="@+id/rlRow_"
         android:background="@drawable/task_background_custom"
         android:clickable="true"
         android:elevation="10dp">
@@ -28,28 +28,28 @@
             android:id="@+id/textRow_TaskName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="15dp"
-            android:lines="1"
             android:layout_toRightOf="@+id/cbRow_ConfirmTask"
             android:fontFamily="@font/montserratsemibold"
             android:gravity="center_vertical"
+            android:lines="1"
             android:text="@string/nome_da_tarefa"
             android:textColor="@color/purplePrimary"
             android:textSize="17dp" />
 
         <TextView
+            android:id="@+id/textRow_TaskDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textRow_TaskDate"
             android:layout_below="@+id/textRow_TaskName"
-            android:layout_toRightOf="@+id/cbRow_ConfirmTask"
             android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/cbRow_ConfirmTask"
             android:fontFamily="@font/montserratmedium"
             android:text="Amanhã"
             android:textColor="@color/purplePrimary"
-            android:textSize="15dp"/>
+            android:textSize="15dp" />
 
     </RelativeLayout>
 </LinearLayout>

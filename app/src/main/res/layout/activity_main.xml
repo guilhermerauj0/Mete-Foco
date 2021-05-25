@@ -26,14 +26,13 @@
             android:layout_marginTop="30dp"
             android:orientation="horizontal">
 
-            <!-- icone do app -->
             <ImageView
                 android:id="@+id/btnMenu"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/menu_button" />
+                android:src="@drawable/tasklist" />
 
         </LinearLayout>
 
@@ -68,23 +67,39 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/rvTask_main"
-            android:layout_marginBottom="2dp"
-            android:fontFamily="@font/montserratbold"
-            android:gravity="center"
-            android:text="Suas Tarefas"
-            android:textColor="@color/purplePrimary"
-            android:textSize="25sp" />
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/layoutMain_YourTasks"
+            android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/rvTask_main"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/montserratbold"
+                android:text="Suas Tarefas"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/purplePrimary"
+                android:textSize="25sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_gravity="center_vertical"
+                android:background="@color/purplePrimary"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="480dp"
             android:id="@+id/rvTask_main"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/layoutMain_YourTasks"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/row_task_list" />
 

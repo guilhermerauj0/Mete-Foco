@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
     public void listarTarefas() {
         Cursor cursor = db.selectAll_Tarefa();
         if (cursor.getCount() == 0) {
-            Toast.makeText(this, "Sem banco de dados", Toast.LENGTH_SHORT).show();
             mostrarInfoTaskOff();
         } else {
             while (cursor.moveToNext()) {

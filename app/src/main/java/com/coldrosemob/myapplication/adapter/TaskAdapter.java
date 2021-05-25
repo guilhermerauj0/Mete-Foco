@@ -48,10 +48,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        //Task task = listaTask.get(position);
-        //holder.bindData(task);
         holder.textRow_TaskName.setText(String.valueOf(taskTitle.get(position)));
         holder.textRow_TaskDate.setText(String.valueOf(taskDate.get(position)));
+
         holder.rlRow_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
