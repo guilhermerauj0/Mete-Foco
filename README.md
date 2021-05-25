@@ -10,7 +10,9 @@ visualização de detalhes da tarefa e organização definida pelo próprio util
 - [x] Tela inicial
 - [x] Cadastro das tarefas
 - [ ] Filtros de tarefas
-- [ ] Tela de detalhes sobre as tarefas
+- [x] Tela de detalhes sobre as tarefas
+- [ ] Exclusão de tarefas
+- [ ] Categorização de tarefas por tipo
 
 ### Ferramentas
 
