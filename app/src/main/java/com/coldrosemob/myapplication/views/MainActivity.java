@@ -7,12 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.coldrosemob.myapplication.R;
 import com.coldrosemob.myapplication.adapter.TaskAdapter;
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.addTaskFAB = findViewById(R.id.fabAdd);
         mViewHolder.textUsuario = findViewById(R.id.textUsuario);
         mViewHolder.rvTask = findViewById(R.id.rvTask_main);
+        mViewHolder.swipeRefresh = findViewById(R.id.swipeRefresh);
 
         listarTarefas();
 
@@ -65,9 +66,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(mViewHolder.i, 1);
             }
         });
+
+        mViewHolder.swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                recreate();
+                mViewHolder.swipeRefresh.setRefreshing(false);
+            }
+        });
     }
 
     public static class ViewHolder {
+        SwipeRefreshLayout swipeRefresh;
         FloatingActionButton addTaskFAB;
         LinearLayout layoutMain_InfoTaskOff;
         Intent i;

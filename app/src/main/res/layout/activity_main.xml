@@ -62,91 +62,97 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/layoutMain_YourTasks"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/layoutMain_YourTasks"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/rvTask_main"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="2dp"
+                    android:fontFamily="@font/montserratbold"
+                    android:text="Suas Tarefas"
+                    android:textColor="@color/purplePrimary"
+                    android:textSize="25sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/purplePrimary" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTask_main"
+                android:layout_width="match_parent"
+                android:layout_height="480dp"
+                android:layout_below="@+id/layoutMain_YourTasks"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/row_task_list" />
+
+            <LinearLayout
+                android:id="@+id/layoutMain_InfoTaskOff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textTaskOff"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/imgTaskOff"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/montserratbold"
+                    android:gravity="center"
+                    android:text="@string/uh_pelo_visto_voc_n_o_tem_tarefas_hoje"
+                    android:textColor="@color/purplePrimary"
+                    android:textSize="25sp" />
+
+                <ImageView
+                    android:id="@+id/imgTaskOff"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/img_tarefas_off" />
+
+            </LinearLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/rvTask_main"
-                android:layout_marginBottom="2dp"
-                android:fontFamily="@font/montserratbold"
-                android:text="Suas Tarefas"
-                android:layout_gravity="center_vertical"
-                android:textColor="@color/purplePrimary"
-                android:textSize="25sp" />
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_addnew"
+                android:tint="@color/white"
+                app:backgroundTint="@color/purplePrimary"
+                app:fabCustomSize="70dp"
+                app:rippleColor="@color/white" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/purplePrimary"
-                android:layout_marginLeft="10dp"/>
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="480dp"
-            android:id="@+id/rvTask_main"
-            android:layout_below="@+id/layoutMain_YourTasks"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/row_task_list" />
-
-        <LinearLayout
-            android:id="@+id/layoutMain_InfoTaskOff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textTaskOff"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/imgTaskOff"
-                android:layout_centerInParent="true"
-                android:fontFamily="@font/montserratbold"
-                android:gravity="center"
-                android:text="@string/uh_pelo_visto_voc_n_o_tem_tarefas_hoje"
-                android:textColor="@color/purplePrimary"
-                android:textSize="25sp" />
-
-            <ImageView
-                android:id="@+id/imgTaskOff"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/img_tarefas_off" />
-
-        </LinearLayout>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/ic_addnew"
-            android:tint="@color/white"
-            app:backgroundTint="@color/purplePrimary"
-            app:fabCustomSize="70dp"
-            app:rippleColor="@color/white" />
-
-    </RelativeLayout>
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

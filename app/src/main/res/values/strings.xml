@@ -15,4 +15,5 @@
     <string name="no_que_devo_focar">No que devo focar?</string>
     <string name="detalhes_da_tarefa">Detalhes da tarefa</string>
     <string name="tipo">Tipo</string>
+    <string name="apagar_dialog">Apagar</string>
 </resources>

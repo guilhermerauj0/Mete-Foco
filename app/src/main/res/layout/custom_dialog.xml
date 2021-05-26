@@ -16,7 +16,7 @@
         android:gravity="center"
         android:text="Detalhes"
         android:textColor="@color/purplePrimary"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <LinearLayout
         android:id="@+id/layoutDialog_Title"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:clickable="false"
             android:fontFamily="@font/montserratmedium"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="Tarefa"
             android:padding="10dp"
             android:textColorHint="@color/purplePrimary"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:clickable="false"
             android:fontFamily="@font/montserratmedium"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="@string/detalhes_da_tarefa"
             android:padding="10dp"
             android:textColorHint="@color/purplePrimary"
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:clickable="false"
             android:fontFamily="@font/montserratmedium"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="@string/tipo"
             android:padding="10dp"
             android:textColorHint="@color/purplePrimary"
@@ -127,12 +127,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserratmedium"
-            android:gravity="center"
+            android:gravity="start"
             android:hint="Data"
             android:padding="10dp"
             android:textColorHint="@color/purplePrimary"
             android:textSize="17dp" />
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDialog_DeleteTask"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/button_with_gradient"
+        android:fontFamily="@font/montserratmedium"
+        android:text="@string/apagar_dialog"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 
 </LinearLayout>
