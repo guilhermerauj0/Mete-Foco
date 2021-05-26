@@ -1,4 +1,4 @@
-<h1 align="center">Mete Foco</h1>
+![img](https://i.imgur.com/ns4aS5T.png)
 <h3 align="center">Aplicativo focado em administração de tarefas pessoais. Inicialmente desenvolvido para Android.</h3>
 
 ### Descrição
