@@ -4,11 +4,13 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,8 @@ import com.coldrosemob.myapplication.model.DatePickerFragment;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -39,10 +43,15 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
         mViewHolder.editDescription = findViewById(R.id.editAddTask_Descricao);
         mViewHolder.editTitle = findViewById(R.id.editAddTask_Title);
         mViewHolder.btnAddTask = findViewById(R.id.btnAddTask_AddTask);
-        mViewHolder.editTipo = findViewById(R.id.editAddTask_Tipo);
+        mViewHolder.spinTipo = findViewById(R.id.spinAddTask_Tipo);
         mViewHolder.layoutAddTask_date = findViewById(R.id.layoutAddTask_date);
         mViewHolder.textAddTask_date = findViewById(R.id.textAddTask_date);
         mViewHolder.i = getIntent();
+
+        String[] valueTipo = {"Casa", "Profissional", "Geral", "Estudo", "Urgentes"};
+        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(valueTipo));
+        ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(this, R.layout.style_spinner_textview, arrayList);
+        mViewHolder.spinTipo.setAdapter(spinAdapter);
 
         // Add Task
         mViewHolder.btnAddTask.setOnClickListener(new View.OnClickListener() {
@@ -51,13 +60,13 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
                 mViewHolder.title = mViewHolder.editTitle.getText().toString();
                 mViewHolder.description = mViewHolder.editDescription.getText().toString();
 
-                if(mViewHolder.title.isEmpty() && mViewHolder.description.isEmpty()){
+                if (mViewHolder.title.isEmpty() && mViewHolder.description.isEmpty()) {
                     Toast.makeText(AddNewTaskActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     mViewHolder.titulo = mViewHolder.editTitle.getText().toString();
                     mViewHolder.descricao = mViewHolder.editDescription.getText().toString();
-                    mViewHolder.tipo = mViewHolder.editTipo.getText().toString();
+                    mViewHolder.tipo = mViewHolder.spinTipo.getSelectedItem().toString();
                     db.insert_Tarefa(mViewHolder.titulo, mViewHolder.descricao, mViewHolder.tipo, mViewHolder.currentDate);
                     setResult(1);
                     finish();
@@ -109,7 +118,8 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
     }
 
     public static class ViewHolder {
-        EditText editTitle, editDescription, editTipo;
+        EditText editTitle, editDescription;
+        Spinner spinTipo;
         LinearLayout layoutAddTask_date;
         TextView textAddTask_date;
         String title, description;

@@ -54,6 +54,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         holder.rlRow_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // detalhes da tarefa
                 AlertDialog.Builder builderDialog = new AlertDialog.Builder(v.getRootView().getContext());
                 View dialogView = LayoutInflater.from(v.getRootView().getContext()).inflate(R.layout.custom_dialog, null);
                 TextView editDialog_Title, editDialog_Descricao, editDialog_Tipo, textDialog_Date;
@@ -88,7 +90,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
                 }
             }
         });
-
     }
 
     @Override
