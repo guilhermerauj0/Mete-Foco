@@ -9,13 +9,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="190dp"
         android:backgroundTint="@color/purplePrimary"
         android:orientation="horizontal">
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="230dp"
+            android:layout_height="220dp"
             android:background="@drawable/rectanglewithborders" />
 
         <LinearLayout
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -54,7 +54,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="30dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="35dp"
             android:fontFamily="@font/montserratmedium"
             android:text="@string/seja_bem_vindo"
             android:textColor="@color/white"
