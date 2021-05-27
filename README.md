@@ -1,4 +1,4 @@
-<h1 align="center">Mete Foco</h1>
+![img](https://i.imgur.com/ns4aS5T.png)
 <h3 align="center">Aplicativo focado em administração de tarefas pessoais. Inicialmente desenvolvido para Android.</h3>
 
 ### Descrição
@@ -9,10 +9,10 @@ visualização de detalhes da tarefa e organização definida pelo próprio util
 
 - [x] Tela inicial
 - [x] Cadastro das tarefas
-- [ ] Filtros de tarefas
 - [x] Tela de detalhes sobre as tarefas
-- [ ] Exclusão de tarefas
-- [ ] Categorização de tarefas por tipo
+- [x] Exclusão de tarefas
+- [x] Categorização de tarefas por tipo
+- [x] Swipe para atualizar as tarefas
 
 ### Ferramentas
 
