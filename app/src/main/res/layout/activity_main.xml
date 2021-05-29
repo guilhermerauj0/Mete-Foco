@@ -14,16 +14,31 @@
         android:backgroundTint="@color/purplePrimary"
         android:orientation="horizontal">
 
+
+
         <View
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:background="@drawable/rectanglewithborders" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout01"
+        <TextView
+            android:id="@+id/textMain_Sobre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/montserratmedium"
+            android:layout_alignParentEnd="true"
+            android:padding="25dp"
+            android:text="Sobre"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 

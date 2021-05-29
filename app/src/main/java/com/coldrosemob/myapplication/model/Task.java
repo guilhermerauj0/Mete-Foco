@@ -8,7 +8,7 @@ public class Task {
     private String taskDate;
     private String taskType;
     private String taskDay;
-    private boolean taskSelected;
+    private int taskSelected;
 
     public Task(Task task) {
         id = task.id;
@@ -17,7 +17,7 @@ public class Task {
         taskDate = task.taskDate;
         taskType = task.taskType;
         taskDay = task.taskDay;
-        taskSelected = false;
+        taskSelected = task.taskSelected;
     }
 
     public Task() {
@@ -27,7 +27,7 @@ public class Task {
         taskDate = "";
         taskType = "";
         taskDay = "";
-        taskSelected = false;
+        taskSelected = 0;
 
     }
 
@@ -39,11 +39,11 @@ public class Task {
         this.id = id;
     }
 
-    public boolean isTaskSelected() {
+    public int getTaskSelected() {
         return taskSelected;
     }
 
-    public void setTaskSelected(boolean taskSelected) {
+    public void setTaskSelected(int taskSelected) {
         this.taskSelected = taskSelected;
     }
 
@@ -87,7 +87,7 @@ public class Task {
         this.taskDescription = taskDescription;
     }
 
-    public Task(int id, String taskTitle, String taskDescription, String taskType, String taskDate, boolean taskSelected) {
+    public Task(int id, String taskTitle, String taskDescription, String taskType, String taskDate, int taskSelected) {
         this.id = id;
         this.taskTitle = taskTitle;
         this.taskDescription = taskDescription;
@@ -102,7 +102,7 @@ public class Task {
         private String taskDate;
         private String taskType;
         private String taskDay;
-        private boolean taskSelected;
+        private int taskSelected;
         private int id;
 
         public TaskBuilder setId(int id) {
@@ -110,9 +110,8 @@ public class Task {
             return this;
         }
 
-        public TaskBuilder setTaskSelected(boolean taskSelected) {
+        public void setTaskSelected(int taskSelected) {
             this.taskSelected = taskSelected;
-            return this;
         }
 
         public TaskBuilder setTaskDay(String taskDay) {

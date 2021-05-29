@@ -13,7 +13,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static int versao = 1;
     private static String nomeDB = "meteFocoTask.db";
     // codigo para adicionar os elementos
-    String[] sql = {"CREATE TABLE tarefa ( id INTEGER NOT NULL UNIQUE, titulo TEXT NOT NULL, descricao TEXT NOT NULL, tipo	TEXT NOT NULL, data	TEXT NOT NULL, PRIMARY KEY(id AUTOINCREMENT));"
+    String[] sql = {"CREATE TABLE tarefa ( id INTEGER NOT NULL UNIQUE, titulo TEXT NOT NULL, descricao TEXT NOT NULL, tipo	TEXT NOT NULL, data	TEXT NOT NULL, selecionado INTEGER NOT NULL, PRIMARY KEY(id AUTOINCREMENT));"
     };
 
     public DBHelper(@Nullable Context context) {
@@ -34,26 +34,35 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //===================================UTILIZADOR======================================
     // INSERT
-    public long insert_Tarefa(String titulo, String descricao, String tipo, String data) {
+    public long insert_Tarefa(String titulo, String descricao, String tipo, String data, int selected) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("titulo", titulo);
         values.put("descricao", descricao);
         values.put("tipo", tipo);
         values.put("data", data);
+        values.put("selecionado", selected);
         return db.insert("tarefa", null, values);
 
     }
 
     // UPDATE
-    public long update_Tarefa(int id, String titulo, String descricao, String tipo, String data) {
+    public long update_Tarefa(int id, String titulo, String descricao, String tipo, String data, int selected) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("titulo", titulo);
         values.put("descricao", descricao);
         values.put("tipo", tipo);
         values.put("data", data);
+        values.put("selecionado", selected);
         return db.update("tarefa", values, "id=?", new String[]{String.valueOf(id)});
+    }
+
+    public long update_Selected(int selected){
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("selecionado", selected);
+        return db.update("tarefa", values, "selecionado=?", new String[]{String.valueOf(selected)});
     }
 
     // DELETE
@@ -90,7 +99,8 @@ public class DBHelper extends SQLiteOpenHelper {
             String descricao = c.getString(c.getColumnIndex("descricao"));
             String tipo = c.getString(c.getColumnIndex("tipo"));
             String data = c.getString(c.getColumnIndex("data"));
-            return new Task(id, titulo, descricao, tipo, data, false);
+            int selecionado = c.getInt(c.getColumnIndex("selecionado"));
+            return new Task(id, titulo, descricao, tipo, data, selecionado);
         } else {
             return null;
         }

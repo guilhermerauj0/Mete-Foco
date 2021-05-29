@@ -3,12 +3,15 @@ package com.coldrosemob.myapplication.adapter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,15 +24,17 @@ import com.coldrosemob.myapplication.viewholder.TaskViewHolder;
 
 import java.util.ArrayList;
 
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
 public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
 
     private Context context;
     private Activity activity;
-    private ArrayList taskId, taskTitle, taskDescription, taskType, taskDate;
+    private ArrayList taskId, taskTitle, taskDescription, taskType, taskDate, taskSelected;
     private DBHelper db;
 
     public TaskAdapter(Activity activity, Context context, ArrayList taskId, ArrayList taskTitle, ArrayList taskDescription,
-                       ArrayList taskType, ArrayList taskDate) {
+                       ArrayList taskType, ArrayList taskDate, ArrayList taskSelected) {
         this.activity = activity;
         this.context = context;
         this.taskId = taskId;
@@ -37,6 +42,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
         this.taskDescription = taskDescription;
         this.taskType = taskType;
         this.taskDate = taskDate;
+        this.taskSelected = taskSelected;
     }
 
     @NonNull
@@ -97,13 +103,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
             }
         });
 
+        // TODO Consertar o check, fazendo com que ele fique salvo
         // click do checkBox
         holder.cbRow_ConfirmTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.cbRow_ConfirmTask.isChecked()) {
+                if(holder.cbRow_ConfirmTask.isChecked()){
                     holder.rlRow_.setActivated(true);
-                } else {
+                }else{
                     holder.rlRow_.setActivated(false);
                 }
             }

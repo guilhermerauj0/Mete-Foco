@@ -60,14 +60,14 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
                 mViewHolder.title = mViewHolder.editTitle.getText().toString();
                 mViewHolder.description = mViewHolder.editDescription.getText().toString();
 
-                if (mViewHolder.title.isEmpty() && mViewHolder.description.isEmpty()) {
+                if (mViewHolder.title.isEmpty() || mViewHolder.description.isEmpty()) {
                     Toast.makeText(AddNewTaskActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     mViewHolder.titulo = mViewHolder.editTitle.getText().toString();
                     mViewHolder.descricao = mViewHolder.editDescription.getText().toString();
                     mViewHolder.tipo = mViewHolder.spinTipo.getSelectedItem().toString();
-                    db.insert_Tarefa(mViewHolder.titulo, mViewHolder.descricao, mViewHolder.tipo, mViewHolder.currentDate);
+                    db.insert_Tarefa(mViewHolder.titulo, mViewHolder.descricao, mViewHolder.tipo, mViewHolder.currentDate, 0);
                     setResult(1);
                     finish();
                 }

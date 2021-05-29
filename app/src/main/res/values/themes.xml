@@ -16,7 +16,7 @@
         <item name="android:forceDarkAllowed" tools:targetApi="q"> false </item>
     </style>
     
-    <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.DayNight.Dialog">
+    <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">@color/purplePrimary</item>
         <item name="android:colorPrimary">@color/purplePrimary</item>
         <item name="android:colorPrimaryDark">@color/grayUnselectedDark</item>

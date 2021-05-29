@@ -9,8 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.taskDescription = new ArrayList<>();
         mViewHolder.taskTitle = new ArrayList<>();
         mViewHolder.taskType = new ArrayList<>();
+        mViewHolder.taskSelected = new ArrayList<>();
 
         mViewHolder.imgTaskOff = findViewById(R.id.imgTaskOff);
         mViewHolder.textTaskOff = findViewById(R.id.textTaskOff);
@@ -48,12 +49,25 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.textUsuario = findViewById(R.id.textUsuario);
         mViewHolder.rvTask = findViewById(R.id.rvTask_main);
         mViewHolder.swipeRefresh = findViewById(R.id.swipeRefresh);
+        mViewHolder.textMain_Sobre = findViewById(R.id.textMain_Sobre);
 
         listarTarefas();
 
+        mViewHolder.textMain_Sobre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("App Beta!")
+                        .setMessage("Este app é beta, logo diversos bugs podem aparecer. Atenção, a funcionalidade de check está inativa." +
+                                " Ao terminar uma tarefa, exclua a mesma!")
+                        .setNegativeButton("OK", null).show();
+            }
+        });
+
         // adapter
         mViewHolder.taskAdapter = new TaskAdapter(MainActivity.this, this, mViewHolder.taskId, mViewHolder.taskTitle,
-                mViewHolder.taskDescription, mViewHolder.taskType, mViewHolder.taskDate);
+                mViewHolder.taskDescription, mViewHolder.taskType, mViewHolder.taskDate, mViewHolder.taskSelected);
         mViewHolder.rvTask.setAdapter(mViewHolder.taskAdapter);
 
         // layout
@@ -80,10 +94,11 @@ public class MainActivity extends AppCompatActivity {
     public static class ViewHolder {
         SwipeRefreshLayout swipeRefresh;
         FloatingActionButton addTaskFAB;
+        TextView textMain_Sobre;
         LinearLayout layoutMain_InfoTaskOff;
         Intent i;
         TextView textUsuario, textTaskOff;
-        ArrayList<String> taskId, taskTitle, taskDescription, taskType, taskDate;
+        ArrayList<String> taskId, taskTitle, taskDescription, taskType, taskDate, taskSelected;
         TaskAdapter taskAdapter;
         ImageView imgTaskOff;
         RecyclerView rvTask;
@@ -109,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 mViewHolder.taskDescription.add(cursor.getString(2));
                 mViewHolder.taskType.add(cursor.getString(3));
                 mViewHolder.taskDate.add(cursor.getString(4));
+                mViewHolder.taskSelected.add(cursor.getString(5));
             }
         }
     }
