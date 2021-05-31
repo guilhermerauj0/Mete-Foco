@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("App Beta!")
-                        .setMessage("Este app é beta, logo diversos bugs podem aparecer. Atenção, a funcionalidade de check está inativa." +
-                                " Ao terminar uma tarefa, exclua a mesma!")
+                        .setMessage("Este app é beta, logo diversos bugs podem aparecer. Desenvolvido por" +
+                                " Arthur Guilherme")
                         .setNegativeButton("OK", null).show();
             }
         });

@@ -3,10 +3,8 @@ package com.coldrosemob.myapplication.adapter;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +21,6 @@ import com.coldrosemob.myapplication.model.DBHelper;
 import com.coldrosemob.myapplication.viewholder.TaskViewHolder;
 
 import java.util.ArrayList;
-
-import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
 
@@ -61,6 +57,16 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         holder.textRow_TaskName.setText(String.valueOf(taskTitle.get(position)));
         holder.textRow_TaskDate.setText(String.valueOf(taskDate.get(position)));
+
+        // validação se o checkbox ta selecionado ou não
+        int posicao = db.selectById_Tarefas(Integer.parseInt(String.valueOf(taskId.get(position)))).getTaskSelected();
+        if (posicao == 1) {
+            holder.cbRow_ConfirmTask.setChecked(true);
+            holder.rlRow_.setActivated(true);
+        } else if (posicao == 0) {
+            holder.cbRow_ConfirmTask.setChecked(false);
+            holder.rlRow_.setActivated(false);
+        }
 
         holder.rlRow_.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,14 +109,27 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
             }
         });
 
-        // TODO Consertar o check, fazendo com que ele fique salvo
         // click do checkBox
-        holder.cbRow_ConfirmTask.setOnClickListener(new View.OnClickListener() {
+        holder.cbRow_ConfirmTask.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                if(holder.cbRow_ConfirmTask.isChecked()){
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (holder.cbRow_ConfirmTask.isChecked()) {
+                    db.update_Tarefa(Integer.parseInt(String.valueOf(taskId.get(position))),
+                            String.valueOf(taskTitle.get(position)),
+                            String.valueOf(taskDescription.get(position)),
+                            String.valueOf(taskType.get(position)),
+                            String.valueOf(taskDate.get(position)), 1);
+
                     holder.rlRow_.setActivated(true);
-                }else{
+
+                } else if (!(holder.cbRow_ConfirmTask.isChecked())) {
+                    db.update_Tarefa(Integer.parseInt(String.valueOf(taskId.get(position))),
+                            String.valueOf(taskTitle.get(position)),
+                            String.valueOf(taskDescription.get(position)),
+                            String.valueOf(taskType.get(position)),
+                            String.valueOf(taskDate.get(position)), 0);
+
                     holder.rlRow_.setActivated(false);
                 }
             }
