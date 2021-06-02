@@ -99,18 +99,16 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         mViewHolder.currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
 
-        SimpleDateFormat formatDate = new SimpleDateFormat("dd");
+        SimpleDateFormat formatDate = new SimpleDateFormat("d");
         Date date = new Date();
         String dateFormat = formatDate.format(date);
         int intDate = Integer.parseInt(dateFormat);
-
-        mViewHolder.day = String.valueOf(dayOfMonth);
 
         if (dateFormat.equals(String.valueOf(dayOfMonth))){
             mViewHolder.textAddTask_date.setText("Hoje");
         }else if (intDate < dayOfMonth && dayOfMonth == intDate + 1) {
             mViewHolder.textAddTask_date.setText("Amanhã");
-        } else if (intDate < dayOfMonth && dayOfMonth == intDate - 1) { // <-- CORRIGIR
+        } else if (intDate > dayOfMonth && dayOfMonth == intDate - 1) { // <-- CORRIGIR
             mViewHolder.textAddTask_date.setText("Ontem");
         } else {
             mViewHolder.textAddTask_date.setText(mViewHolder.currentDate);
