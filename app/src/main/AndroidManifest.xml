@@ -19,5 +19,4 @@
         <activity android:name=".views.AddNewTaskActivity" />
         <activity android:name=".views.MainActivity"></activity>
     </application>
-
 </manifest>

@@ -1,5 +1,6 @@
 package com.coldrosemob.myapplication.views;
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -7,10 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -20,7 +23,9 @@ import com.coldrosemob.myapplication.adapter.TaskAdapter;
 import com.coldrosemob.myapplication.model.DBHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         mViewHolder.textMain_Sobre = findViewById(R.id.textMain_Sobre);
 
         listarTarefas();
+        notificacaoDiaAtual();
 
         mViewHolder.textMain_Sobre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mViewHolder.i = new Intent(MainActivity.this, AddNewTaskActivity.class);
+                mViewHolder.i.putExtra("dateforwork", mViewHolder.dateForWork);
                 startActivityForResult(mViewHolder.i, 1);
             }
         });
@@ -94,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
     public static class ViewHolder {
         SwipeRefreshLayout swipeRefresh;
         FloatingActionButton addTaskFAB;
+        String dateForWork = "";
         TextView textMain_Sobre;
         LinearLayout layoutMain_InfoTaskOff;
         Intent i;
@@ -107,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1 && resultCode == 1) {
+        if (requestCode == 1 && resultCode == 1 && data != null) {
+            mViewHolder.dateForWork = data.getExtras().getString("dateforwork");
             recreate();
         }
     }
@@ -135,5 +144,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void ocultarInfoTaskOff() {
         mViewHolder.layoutMain_InfoTaskOff.setVisibility(View.INVISIBLE);
+    }
+
+    public void notificacaoDiaAtual(){
+        String message = "Bom dia! Temos tarefa hoje!";
+        SimpleDateFormat formatDate = new SimpleDateFormat("d/M/yyyy");
+        Date date = new Date();
+        String dateFormat = formatDate.format(date);
+
+        if (dateFormat.equals(mViewHolder.dateForWork)){
+            // notification on
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(MainActivity.this)
+                    .setSmallIcon(R.drawable.ic_baseline_title)
+                    .setContentTitle("Mete Foco!")
+                    .setContentText(message)
+                    .setAutoCancel(true);
+            NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+            notificationManager.notify(0, builder.build());
+        }else{
+            Toast.makeText(this, "problema ao criar notificacao", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

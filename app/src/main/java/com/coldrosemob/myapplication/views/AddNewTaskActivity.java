@@ -64,11 +64,12 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
                     Toast.makeText(AddNewTaskActivity.this, "Preencha os campos", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    mViewHolder.i.putExtra("dateforwork", mViewHolder.dateForWork);
                     mViewHolder.titulo = mViewHolder.editTitle.getText().toString();
                     mViewHolder.descricao = mViewHolder.editDescription.getText().toString();
                     mViewHolder.tipo = mViewHolder.spinTipo.getSelectedItem().toString();
                     db.insert_Tarefa(mViewHolder.titulo, mViewHolder.descricao, mViewHolder.tipo, mViewHolder.currentDate, 0);
-                    setResult(1);
+                    setResult(1, mViewHolder.i);
                     finish();
                 }
             }
@@ -98,6 +99,7 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         mViewHolder.currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
+        mViewHolder.dateForWork = dayOfMonth + "/" + (month+1) + "/" + year;
 
         SimpleDateFormat formatDate = new SimpleDateFormat("d");
         Date date = new Date();
@@ -121,7 +123,7 @@ public class AddNewTaskActivity extends AppCompatActivity implements DatePickerD
         LinearLayout layoutAddTask_date;
         TextView textAddTask_date;
         String title, description;
-        String currentDate, day, titulo, descricao, tipo;
+        String currentDate, titulo, descricao, tipo, dateForWork;
         ImageView btnVoltar;
         Button btnAddTask;
         Intent i;
