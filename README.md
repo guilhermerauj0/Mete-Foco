@@ -19,3 +19,6 @@ visualização de detalhes da tarefa e organização definida pelo próprio util
 
 - [Android Studio](https://developer.android.com/studio)
 - [Banco de Dados SQLite](https://www.sqlite.org/index.html)
+
+### Detalhes
+Projeto ainda em desenvolvimento!
