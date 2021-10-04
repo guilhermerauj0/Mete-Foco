@@ -13,7 +13,6 @@ visualização de detalhes da tarefa e organização definida pelo próprio util
 - [x] Exclusão de tarefas
 - [x] Categorização de tarefas por tipo
 - [x] Swipe para atualizar as tarefas
-- [x] Arquitetura MVVM
 
 ### Ferramentas
 
