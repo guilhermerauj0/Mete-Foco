@@ -7,12 +7,12 @@ visualização de detalhes da tarefa e organização definida pelo próprio util
 
 ### Features
 
-- [x] Tela inicial
-- [x] Cadastro das tarefas
-- [x] Tela de detalhes sobre as tarefas
-- [x] Exclusão de tarefas
-- [x] Categorização de tarefas por tipo
-- [x] Swipe para atualizar as tarefas
+* Tela inicial
+* Cadastro das tarefas
+* Tela de detalhes sobre as tarefas
+* Exclusão de tarefas
+* Categorização de tarefas por tipo
+* Swipe para atualizar a home
 
 ### Ferramentas
 
@@ -20,4 +20,4 @@ visualização de detalhes da tarefa e organização definida pelo próprio util
 - [Banco de Dados SQLite](https://www.sqlite.org/index.html)
 
 ### Detalhes
-Projeto ainda em desenvolvimento!
+Desenvolvimento em pausa!
