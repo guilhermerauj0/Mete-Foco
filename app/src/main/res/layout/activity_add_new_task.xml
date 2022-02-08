@@ -75,15 +75,15 @@
             android:id="@+id/editAddTask_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="2dp"
-            android:textSize="17dp"
             android:layout_marginBottom="20dp"
-            android:focusable="true"
             android:background="@drawable/edittext_custom"
+            android:elevation="2dp"
+            android:focusable="true"
             android:fontFamily="@font/montserratmedium"
             android:hint="@string/no_que_devo_focar"
             android:padding="15dp"
-            android:textColorHint="@color/cardview_dark_background" />
+            android:textColorHint="@color/cardview_dark_background"
+            android:textSize="17dp" />
 
 
         <EditText

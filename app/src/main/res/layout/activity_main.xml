@@ -116,14 +116,6 @@
 
             </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTask_main"
-                android:layout_width="match_parent"
-                android:layout_height="480dp"
-                android:layout_below="@+id/layoutMain_YourTasks"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/row_task_list" />
-
             <LinearLayout
                 android:id="@+id/layoutMain_InfoTaskOff"
                 android:layout_width="match_parent"
@@ -150,6 +142,13 @@
                     android:layout_height="200dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/img_tarefas_off" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTask_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="480dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_task_list" />
 
             </LinearLayout>
 
